@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Homework — Percentages</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Fira+Code:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --yellow:#FFD93D; --orange:#FF8C42; --pink:#FF6B9D; --purple:#845EC2;
+  --blue:#0081CF; --teal:#00C9A7; --cyan:#38BDF8;
+  --bg:#FFFBF0; --dark:#1A1333; --card:#FFFFFF;
+  --text:#1A1333; --muted:#6B6880;
+  --radius:16px; --shadow:0 6px 28px rgba(26,19,51,0.10);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'Nunito',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;-webkit-font-smoothing:antialiased;}
+
+.page{max-width:780px;margin:0 auto;padding:40px 28px 80px;}
+
+/* back link */
+.back{display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:800;color:var(--muted);text-decoration:none;margin-bottom:32px;letter-spacing:.04em;transition:color .15s;}
+.back:hover{color:var(--orange);}
+
+/* header */
+.hw-header{margin-bottom:36px;}
+.hw-eyebrow{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px;}
+.tag{display:inline-block;padding:3px 12px;border-radius:999px;font-size:11px;font-weight:800;letter-spacing:.06em;}
+.tag-orange{background:var(--orange);color:#fff;}
+.tag-cyan{background:var(--cyan);color:var(--dark);}
+.hw-title{font-size:clamp(24px,4vw,38px);font-weight:900;line-height:1.15;}
+.hw-title em{color:var(--orange);font-style:normal;}
+.hw-sub{font-size:14px;color:var(--muted);margin-top:10px;font-weight:600;line-height:1.5;}
+
+/* section label */
+.section-label{font-size:10px;font-weight:800;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);margin-bottom:20px;display:flex;align-items:center;gap:14px;}
+.section-label::after{content:'';flex:1;height:1px;background:#E5E0F0;}
+
+/* problem card */
+.problem-card{background:var(--card);border-radius:var(--radius);padding:22px 24px;box-shadow:var(--shadow);margin-bottom:16px;border-left:5px solid;}
+.problem-card .p-num{font-family:'Fira Code',monospace;font-size:10px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);margin-bottom:10px;}
+.problem-card .p-question{font-size:15px;font-weight:700;line-height:1.6;color:var(--dark);}
+.problem-card .p-notebook{margin-top:14px;display:flex;align-items:center;gap:8px;background:#F8F4FF;border-radius:10px;padding:9px 14px;}
+.problem-card .p-notebook span{font-size:12px;color:var(--purple);font-weight:700;}
+
+/* brain teaser card */
+.teaser-card{background:linear-gradient(135deg,#F5F0FF,#FFF0F5);border-radius:var(--radius);padding:22px 24px;box-shadow:var(--shadow);margin-bottom:16px;border-left:5px solid var(--purple);}
+.teaser-card .t-label{font-size:11px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--purple);margin-bottom:10px;}
+.teaser-card .t-question{font-size:15px;font-weight:700;line-height:1.6;color:var(--dark);}
+.teaser-card .t-hint{margin-top:10px;font-size:12.5px;color:var(--muted);font-style:italic;}
+.teaser-card .p-notebook{margin-top:14px;display:flex;align-items:center;gap:8px;background:rgba(132,94,194,0.08);border-radius:10px;padding:9px 14px;}
+.teaser-card .p-notebook span{font-size:12px;color:var(--purple);font-weight:700;}
+</style>
+</head>
+<body>
+<div class="page">
+
+  <a class="back" href="index.html">← Back to Lessons</a>
+
+  <div class="hw-header">
+    <div class="hw-eyebrow">
+      <span class="tag tag-cyan">Homework</span>
+      <span class="tag tag-orange">Lesson 01 · Percentages</span>
+    </div>
+    <h1 class="hw-title"><em>Percentages</em> Homework %</h1>
+    <p class="hw-sub">Work through each problem. Write your answers and working in your notebook.</p>
+  </div>
+
+  <div class="section-label">Word Problems</div>
+
+  <div class="problem-card" style="border-color:var(--orange);">
+    <div class="p-num">Problem 1</div>
+    <p class="p-question">A number is increased by 20% and then decreased by 20%. Is the final number equal to the original? If not, what is the final number? <em>(Hint: try starting with 100.)</em></p>
+    <div class="p-notebook"><span>✏️ Write your answer in your notebook.</span></div>
+  </div>
+
+  <div class="problem-card" style="border-color:var(--blue);">
+    <div class="p-num">Problem 2</div>
+    <p class="p-question">A toy costs $100. It is discounted by 20%, and then the new price is discounted by another 20%. What is the final price of the toy?</p>
+    <div class="p-notebook"><span>✏️ Write your answer in your notebook.</span></div>
+  </div>
+
+  <div class="section-label" style="margin-top:32px;">Brain Teaser</div>
+
+  <div class="teaser-card">
+    <div class="t-label">🧩 Brain Teaser</div>
+    <p class="t-question">50% of a number equals 25% of 80. What is the number?</p>
+    <p class="t-hint">Hint: find 25% of 80 first, then work backwards.</p>
+    <div class="p-notebook"><span>✏️ Write your answer in your notebook.</span></div>
+  </div>
+
+</div>
+</body>
+</html>
