@@ -106,7 +106,7 @@ code,.mono{font-family:'Fira Code',monospace;background:#F0EBF8;border-radius:6p
 #s8 h2{color:white;}#s8 .slide-label{opacity:.5;}
 .explorer-layout{display:flex;gap:16px;flex:1;margin-top:8px;}
 .explorer-list{min-width:160px;display:flex;flex-direction:column;gap:7px;}
-.explorer-row{background:rgba(255,255,255,0.05);border:2px solid rgba(255,255,255,0.08);border-radius:12px;padding:8px 14px;cursor:pointer;transition:all .15s;font-family:'Fira Code',monospace;font-size:14px;font-weight:700;color:rgba(255,255,255,0.6);}
+.explorer-row{background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.18);border-radius:12px;padding:8px 14px;cursor:pointer;transition:all .15s;font-family:'Fira Code',monospace;font-size:14px;font-weight:700;color:rgba(255,255,255,0.92);}
 .explorer-row:hover{border-color:rgba(255,255,255,0.3);}
 .explorer-row.active{border-color:var(--lime);background:rgba(168,224,99,0.08);color:var(--lime);}
 .explorer-panel{flex:1;background:#0E0B1E;border-radius:16px;padding:18px 22px;display:flex;flex-direction:column;gap:10px;}
@@ -155,7 +155,7 @@ code,.mono{font-family:'Fira Code',monospace;background:#F0EBF8;border-radius:6p
 .final-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:20px;width:100%;max-width:840px;}
 .final-card{border-radius:var(--radius);padding:16px 14px;display:flex;flex-direction:column;align-items:center;gap:7px;text-align:center;}
 .final-card h3{font-size:13px;color:white;}
-.final-card p{font-size:11px;color:rgba(255,255,255,0.55);line-height:1.5;}
+.final-card p{font-size:11px;color:rgba(255,255,255,0.82);line-height:1.5;}
 </style>
 </head>
 <body>
@@ -260,7 +260,15 @@ code,.mono{font-family:'Fira Code',monospace;background:#F0EBF8;border-radius:6p
       <h3 style="color:var(--purple);">🔵 Prime Numbers</h3>
       <p style="font-size:13px;margin-top:6px;">A number greater than 1 with <strong>exactly 2 factors</strong>: 1 and itself. It cannot be divided evenly by anything else.</p>
       <div style="display:flex;flex-wrap:wrap;gap:8px;margin-top:12px;">
-        {[2,3,5,7,11,13,17,19,23].map(n=>`<span class="num-badge num-prime">${n}</span>`).join('')}
+        <span class="num-badge num-prime">2</span>
+        <span class="num-badge num-prime">3</span>
+        <span class="num-badge num-prime">5</span>
+        <span class="num-badge num-prime">7</span>
+        <span class="num-badge num-prime">11</span>
+        <span class="num-badge num-prime">13</span>
+        <span class="num-badge num-prime">17</span>
+        <span class="num-badge num-prime">19</span>
+        <span class="num-badge num-prime">23</span>
       </div>
       <p style="font-size:12px;color:var(--muted);margin-top:10px;">2 is the only even prime number.</p>
     </div>
@@ -268,7 +276,15 @@ code,.mono{font-family:'Fira Code',monospace;background:#F0EBF8;border-radius:6p
       <h3 style="color:var(--orange);">🟠 Composite Numbers</h3>
       <p style="font-size:13px;margin-top:6px;">A number with <strong>more than 2 factors</strong>. It can be divided evenly by numbers other than 1 and itself.</p>
       <div style="display:flex;flex-wrap:wrap;gap:8px;margin-top:12px;">
-        {[4,6,8,9,10,12,14,15,16].map(n=>`<span class="num-badge num-composite">${n}</span>`).join('')}
+        <span class="num-badge num-composite">4</span>
+        <span class="num-badge num-composite">6</span>
+        <span class="num-badge num-composite">8</span>
+        <span class="num-badge num-composite">9</span>
+        <span class="num-badge num-composite">10</span>
+        <span class="num-badge num-composite">12</span>
+        <span class="num-badge num-composite">14</span>
+        <span class="num-badge num-composite">15</span>
+        <span class="num-badge num-composite">16</span>
       </div>
       <p style="font-size:12px;color:var(--muted);margin-top:10px;">4 = 1×4 = 2×2 — it has 3 factors.</p>
     </div>
@@ -475,19 +491,6 @@ function goTo(n){slides[cur].classList.remove('active');slides[cur].classList.ad
 function nav(d){goTo(cur+d);}
 document.addEventListener('keydown',e=>{if(e.key==='ArrowRight'||e.key==='ArrowDown')nav(1);if(e.key==='ArrowLeft'||e.key==='ArrowUp')nav(-1);if(e.key==='f'||e.key==='F')document.documentElement.requestFullscreen?.();});
 
-// FIX S4 prime/composite badges (template literals in static HTML workaround)
-document.querySelector('#s4 .grid2').querySelectorAll('[data-prime]').forEach(el=>{});
-(function(){
-  const primes=[2,3,5,7,11,13,17,19,23];
-  const composites=[4,6,8,9,10,12,14,15,16];
-  const pDiv=document.createElement('div');pDiv.style.cssText='display:flex;flex-wrap:wrap;gap:8px;margin-top:12px;';
-  primes.forEach(n=>{const s=document.createElement('span');s.className='num-badge num-prime';s.textContent=n;pDiv.appendChild(s);});
-  const cDiv=document.createElement('div');cDiv.style.cssText='display:flex;flex-wrap:wrap;gap:8px;margin-top:12px;';
-  composites.forEach(n=>{const s=document.createElement('span');s.className='num-badge num-composite';s.textContent=n;cDiv.appendChild(s);});
-  const cards=document.querySelectorAll('#s4 .grid2 > div');
-  if(cards[0]) cards[0].querySelector('p:last-of-type')?.before(pDiv);
-  if(cards[1]) cards[1].querySelector('p:last-of-type')?.before(cDiv);
-})();
 
 // S7 FACTOR EXPLORER
 const explorerData=[
