@@ -69,6 +69,17 @@ code,.mono{font-family:'Fira Code',monospace;background:#E8FFFB;border-radius:6p
 .euclid-row:last-child{border-bottom:none;color:var(--teal);font-weight:800;}
 .euclid-eq{flex:1;}
 .euclid-note{font-size:11px;color:var(--muted);font-family:'Nunito',sans-serif;}
+/* ── LONG DIVISION COMPONENT ── */
+.ld{display:flex;flex-direction:column;font-family:'Fira Code',monospace;font-size:13px;margin:4px 0 10px;gap:1px;line-height:1.7;}
+.ld-qrow,.ld-mrow,.ld-sub,.ld-bar,.ld-rem{display:flex;align-items:baseline;}
+.ld-spc{visibility:hidden;}
+.ld-quot{padding-left:6px;font-weight:800;color:var(--teal);}
+.ld-div{} /* divisor */
+.ld-bk{border-top:2.5px solid #1A4B5E;border-left:2.5px solid #1A4B5E;border-bottom-left-radius:7px;padding:1px 8px 1px 5px;margin-left:1px;}
+.ld-sval{padding-left:6px;}
+.ld-bval{padding-left:6px;border-bottom:1.5px solid #aaa;min-width:2.5ch;}
+.ld-rval{padding-left:6px;color:var(--muted);font-size:12px;}
+.ld-stop{padding-left:6px;color:var(--teal);font-weight:800;font-size:12px;}
 /* S5 LCM */
 #s5{background:#FFFBE8;}
 #s5 .b1{width:280px;height:280px;background:var(--yellow);top:-60px;left:-60px;}
@@ -243,43 +254,53 @@ code,.mono{font-family:'Fira Code',monospace;background:#E8FFFB;border-radius:6p
   <div class="grid2" style="flex:1;gap:14px;">
     <div style="background:white;border-radius:var(--radius);padding:16px 18px;box-shadow:var(--shadow);border-top:4px solid var(--blue);">
       <h3 style="margin-bottom:10px;">GCF(36, 60)</h3>
-      <div style="font-family:'Fira Code',monospace;font-size:13px;line-height:1.5;background:#F0F8FF;border-radius:10px;padding:12px 14px;">
-        <p style="color:var(--muted);font-size:11px;">Step 1: 60 ÷ 36</p>
-        <pre style="margin:2px 0 8px;">  1
-36)60
-   36
-   ──
-   24  ← remainder</pre>
-        <p style="color:var(--muted);font-size:11px;">Step 2: 36 ÷ 24</p>
-        <pre style="margin:2px 0 8px;">  1
-24)36
-   24
-   ──
-   12  ← remainder</pre>
-        <p style="color:var(--muted);font-size:11px;">Step 3: 24 ÷ 12</p>
-        <pre style="margin:2px 0;">  2
-12)24
-   24
-   ──
-    0  ← remainder is 0, STOP!</pre>
+      <div style="background:#F0F8FF;border-radius:10px;padding:12px 14px;">
+        <p style="color:var(--muted);font-size:11px;margin-bottom:2px;">Step 1: 60 ÷ 36</p>
+        <div class="ld">
+          <div class="ld-qrow"><span class="ld-spc">36</span><span class="ld-quot">1</span></div>
+          <div class="ld-mrow"><span class="ld-div">36</span><span class="ld-bk">60</span></div>
+          <div class="ld-sub"><span class="ld-spc">36</span><span class="ld-sval">36</span></div>
+          <div class="ld-bar"><span class="ld-spc">36</span><span class="ld-bval">───</span></div>
+          <div class="ld-rem"><span class="ld-spc">36</span><span class="ld-rval">24 ← remainder</span></div>
+        </div>
+        <p style="color:var(--muted);font-size:11px;margin-bottom:2px;">Step 2: 36 ÷ 24</p>
+        <div class="ld">
+          <div class="ld-qrow"><span class="ld-spc">24</span><span class="ld-quot">1</span></div>
+          <div class="ld-mrow"><span class="ld-div">24</span><span class="ld-bk">36</span></div>
+          <div class="ld-sub"><span class="ld-spc">24</span><span class="ld-sval">24</span></div>
+          <div class="ld-bar"><span class="ld-spc">24</span><span class="ld-bval">───</span></div>
+          <div class="ld-rem"><span class="ld-spc">24</span><span class="ld-rval">12 ← remainder</span></div>
+        </div>
+        <p style="color:var(--muted);font-size:11px;margin-bottom:2px;">Step 3: 24 ÷ 12</p>
+        <div class="ld">
+          <div class="ld-qrow"><span class="ld-spc">12</span><span class="ld-quot">2</span></div>
+          <div class="ld-mrow"><span class="ld-div">12</span><span class="ld-bk">24</span></div>
+          <div class="ld-sub"><span class="ld-spc">12</span><span class="ld-sval">24</span></div>
+          <div class="ld-bar"><span class="ld-spc">12</span><span class="ld-bval">───</span></div>
+          <div class="ld-rem"><span class="ld-spc">12</span><span class="ld-stop">0 ← STOP! GCF = 12</span></div>
+        </div>
       </div>
       <p style="font-size:13px;font-weight:800;color:var(--teal);margin-top:10px;">GCF(36, 60) = 12 ✓</p>
     </div>
     <div style="background:white;border-radius:var(--radius);padding:16px 18px;box-shadow:var(--shadow);border-top:4px solid var(--teal);">
       <h3 style="margin-bottom:10px;">GCF(84, 56)</h3>
-      <div style="font-family:'Fira Code',monospace;font-size:13px;line-height:1.5;background:#E8FFFB;border-radius:10px;padding:12px 14px;">
-        <p style="color:var(--muted);font-size:11px;">Step 1: 84 ÷ 56</p>
-        <pre style="margin:2px 0 8px;">  1
-56)84
-   56
-   ──
-   28  ← remainder</pre>
-        <p style="color:var(--muted);font-size:11px;">Step 2: 56 ÷ 28</p>
-        <pre style="margin:2px 0;">  2
-28)56
-   56
-   ──
-    0  ← remainder is 0, STOP!</pre>
+      <div style="background:#E8FFFB;border-radius:10px;padding:12px 14px;">
+        <p style="color:var(--muted);font-size:11px;margin-bottom:2px;">Step 1: 84 ÷ 56</p>
+        <div class="ld">
+          <div class="ld-qrow"><span class="ld-spc">56</span><span class="ld-quot">1</span></div>
+          <div class="ld-mrow"><span class="ld-div">56</span><span class="ld-bk">84</span></div>
+          <div class="ld-sub"><span class="ld-spc">56</span><span class="ld-sval">56</span></div>
+          <div class="ld-bar"><span class="ld-spc">56</span><span class="ld-bval">───</span></div>
+          <div class="ld-rem"><span class="ld-spc">56</span><span class="ld-rval">28 ← remainder</span></div>
+        </div>
+        <p style="color:var(--muted);font-size:11px;margin-bottom:2px;">Step 2: 56 ÷ 28</p>
+        <div class="ld">
+          <div class="ld-qrow"><span class="ld-spc">28</span><span class="ld-quot">2</span></div>
+          <div class="ld-mrow"><span class="ld-div">28</span><span class="ld-bk">56</span></div>
+          <div class="ld-sub"><span class="ld-spc">28</span><span class="ld-sval">56</span></div>
+          <div class="ld-bar"><span class="ld-spc">28</span><span class="ld-bval">───</span></div>
+          <div class="ld-rem"><span class="ld-spc">28</span><span class="ld-stop">0 ← STOP! GCF = 28</span></div>
+        </div>
       </div>
       <p style="font-size:13px;font-weight:800;color:var(--teal);margin-top:10px;">GCF(84, 56) = 28 ✓</p>
     </div>
