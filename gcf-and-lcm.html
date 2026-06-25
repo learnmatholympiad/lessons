@@ -166,26 +166,37 @@ code,.mono{font-family:'Fira Code',monospace;background:#E8FFFB;border-radius:6p
   <div class="blob b1"></div>
   <div class="slide-label">Part 1 — GCF</div>
   <h2>What is the Greatest Common Factor? 🔍</h2>
-  <p style="font-size:13px;margin-bottom:12px;">The <strong>GCF</strong> of two or more numbers is the <strong>largest factor they all share</strong>. We write it as <code>GCF(36, 60)</code>.</p>
-  <div class="grid2" style="flex:1;gap:14px;">
-    <div style="background:white;border-radius:var(--radius);padding:18px;box-shadow:var(--shadow);border-top:4px solid var(--teal);">
-      <h3>GCF(36, 60) — Method 2 (list factors)</h3>
-      <div style="margin-top:10px;font-family:'Fira Code',monospace;font-size:13px;line-height:2.2;">
-        <p>Factors of 36: 1, 2, 3, 4, <strong style="color:var(--teal);">6, 9, 12</strong>, 18, 36</p>
-        <p>Factors of 60: 1, 2, 3, 4, 5, <strong style="color:var(--teal);">6, 10, 12</strong>, 15, 20…</p>
-        <p>Common: 1, 2, 3, 4, <strong style="color:var(--teal);">6, 12</strong></p>
-        <p style="color:var(--teal);font-weight:800;">GCF(36, 60) = 12 ✓</p>
+  <div class="tri-row" style="margin-top:8px;">
+    <div class="tri-card" style="border-color:var(--teal);">
+      <div style="font-size:26px;">🔢</div>
+      <h3>Break it down word by word</h3>
+      <div style="display:flex;flex-direction:column;gap:8px;margin-top:6px;">
+        <div style="background:#E8FFFB;border-radius:10px;padding:8px 12px;font-size:13px;"><strong style="color:var(--teal);">Greatest</strong> = the biggest one</div>
+        <div style="background:#E8FFFB;border-radius:10px;padding:8px 12px;font-size:13px;"><strong style="color:var(--teal);">Common</strong> = shared by all the numbers</div>
+        <div style="background:#E8FFFB;border-radius:10px;padding:8px 12px;font-size:13px;"><strong style="color:var(--teal);">Factor</strong> = a number that divides in exactly</div>
       </div>
     </div>
-    <div style="display:flex;flex-direction:column;gap:12px;">
-      <div style="background:var(--yellow);border-radius:var(--radius);padding:14px 18px;">
-        <p style="font-size:13px;color:var(--dark);"><strong>What does it mean?</strong> GCF(36, 60) = 12 means 12 is the biggest number that divides both 36 and 60 exactly with no remainder.</p>
-      </div>
-      <div style="background:white;border-radius:var(--radius);padding:14px 18px;box-shadow:var(--shadow);border-left:5px solid var(--cyan);">
-        <h3>Real-world use</h3>
-        <p style="font-size:13px;">You have 36 red tiles and 60 blue tiles. You want to arrange them in equal rows using both colors. The largest possible row size is <strong>GCF(36, 60) = 12</strong>.</p>
+    <div class="tri-card" style="border-color:var(--yellow);flex:1.4;">
+      <div style="font-size:26px;">🍎</div>
+      <h3>Think of it this way</h3>
+      <p style="font-size:13px;line-height:1.7;">You have <strong>8 apples</strong> and <strong>12 oranges</strong>. You want to make equal fruit bags using <em>all</em> the fruit — no fruit left over, same number in every bag.</p>
+      <p style="font-size:13px;line-height:1.7;margin-top:8px;">What is the <strong>largest</strong> number of bags you can make?</p>
+      <div style="background:var(--yellow);border-radius:10px;padding:9px 12px;margin-top:8px;">
+        <p style="font-size:13px;color:var(--dark);font-weight:800;">That answer is the GCF of 8 and 12!</p>
       </div>
     </div>
+    <div class="tri-card" style="border-color:var(--cyan);">
+      <div style="font-size:26px;">💡</div>
+      <h3>In other words…</h3>
+      <p style="font-size:13px;line-height:1.7;">The GCF is the <strong>biggest number that divides evenly into all the numbers in the group</strong> — no remainders allowed!</p>
+      <div style="background:#E8F5FF;border-radius:10px;padding:9px 12px;margin-top:8px;font-family:'Fira Code',monospace;font-size:13px;">
+        <p>GCF(8, 12) = <strong style="color:var(--teal);">4</strong></p>
+        <p style="font-size:11px;color:var(--muted);">8 ÷ 4 = 2 ✓  and  12 ÷ 4 = 3 ✓</p>
+      </div>
+    </div>
+  </div>
+  <div style="margin-top:12px;background:var(--yellow);border-radius:12px;padding:10px 16px;">
+    <p style="font-size:13px;color:var(--dark);"><strong>🎯 Remember:</strong> the GCF is never bigger than the smallest number in the group. GCF(8, 12) can't be bigger than 8!</p>
   </div>
 </div>
 
@@ -227,25 +238,54 @@ code,.mono{font-family:'Fira Code',monospace;background:#E8FFFB;border-radius:6p
 <div class="slide" id="s4">
   <div class="blob b1"></div>
   <div class="slide-label">Part 1 — Advanced Method</div>
-  <h2>Euclid's Algorithm ⚡</h2>
-  <p style="font-size:13px;margin-bottom:14px;">A clever method using <strong>repeated division</strong>. Divide the larger number by the smaller, keep the remainder, then repeat until the remainder is 0. The last divisor is the GCF.</p>
+  <h2>Euclid's Algorithm — using long division ⚡</h2>
+  <p style="font-size:13px;margin-bottom:12px;">Divide the bigger number by the smaller. Take the <strong>remainder</strong> and divide again. Keep going until the remainder is <strong>0</strong> — the last number you divided by is the GCF.</p>
   <div class="grid2" style="flex:1;gap:14px;">
     <div style="background:white;border-radius:var(--radius);padding:16px 18px;box-shadow:var(--shadow);border-top:4px solid var(--blue);">
-      <h3 style="margin-bottom:12px;">GCF(36, 60)</h3>
-      <div class="euclid-row"><span class="euclid-eq">60 = 1 × 36 + <strong>24</strong></span><span class="euclid-note">remainder 24</span></div>
-      <div class="euclid-row"><span class="euclid-eq">36 = 1 × 24 + <strong>12</strong></span><span class="euclid-note">remainder 12</span></div>
-      <div class="euclid-row"><span class="euclid-eq">24 = 2 × 12 + <strong>0</strong></span><span class="euclid-note">remainder 0 → stop!</span></div>
-      <div class="euclid-row" style="border-bottom:none;"><span class="euclid-eq">GCF(36, 60) = 12 ✓</span></div>
+      <h3 style="margin-bottom:10px;">GCF(36, 60)</h3>
+      <div style="font-family:'Fira Code',monospace;font-size:13px;line-height:1.5;background:#F0F8FF;border-radius:10px;padding:12px 14px;">
+        <p style="color:var(--muted);font-size:11px;">Step 1: 60 ÷ 36</p>
+        <pre style="margin:2px 0 8px;">  1
+36)60
+   36
+   ──
+   24  ← remainder</pre>
+        <p style="color:var(--muted);font-size:11px;">Step 2: 36 ÷ 24</p>
+        <pre style="margin:2px 0 8px;">  1
+24)36
+   24
+   ──
+   12  ← remainder</pre>
+        <p style="color:var(--muted);font-size:11px;">Step 3: 24 ÷ 12</p>
+        <pre style="margin:2px 0;">  2
+12)24
+   24
+   ──
+    0  ← remainder is 0, STOP!</pre>
+      </div>
+      <p style="font-size:13px;font-weight:800;color:var(--teal);margin-top:10px;">GCF(36, 60) = 12 ✓</p>
     </div>
     <div style="background:white;border-radius:var(--radius);padding:16px 18px;box-shadow:var(--shadow);border-top:4px solid var(--teal);">
-      <h3 style="margin-bottom:12px;">GCF(84, 56)</h3>
-      <div class="euclid-row"><span class="euclid-eq">84 = 1 × 56 + <strong>28</strong></span><span class="euclid-note">remainder 28</span></div>
-      <div class="euclid-row"><span class="euclid-eq">56 = 2 × 28 + <strong>0</strong></span><span class="euclid-note">remainder 0 → stop!</span></div>
-      <div class="euclid-row" style="border-bottom:none;"><span class="euclid-eq">GCF(84, 56) = 28 ✓</span></div>
+      <h3 style="margin-bottom:10px;">GCF(84, 56)</h3>
+      <div style="font-family:'Fira Code',monospace;font-size:13px;line-height:1.5;background:#E8FFFB;border-radius:10px;padding:12px 14px;">
+        <p style="color:var(--muted);font-size:11px;">Step 1: 84 ÷ 56</p>
+        <pre style="margin:2px 0 8px;">  1
+56)84
+   56
+   ──
+   28  ← remainder</pre>
+        <p style="color:var(--muted);font-size:11px;">Step 2: 56 ÷ 28</p>
+        <pre style="margin:2px 0;">  2
+28)56
+   56
+   ──
+    0  ← remainder is 0, STOP!</pre>
+      </div>
+      <p style="font-size:13px;font-weight:800;color:var(--teal);margin-top:10px;">GCF(84, 56) = 28 ✓</p>
     </div>
   </div>
-  <div style="margin-top:14px;background:var(--yellow);border-radius:12px;padding:10px 16px;">
-    <p style="font-size:13px;color:var(--dark);"><strong>🔑 Rule:</strong> When the remainder hits 0, the number you just divided BY is the GCF. This always works and is the fastest method for big numbers!</p>
+  <div style="margin-top:12px;background:var(--yellow);border-radius:12px;padding:10px 16px;">
+    <p style="font-size:13px;color:var(--dark);"><strong>🔑 Rule:</strong> When the remainder hits 0, the last number you divided BY is your GCF answer!</p>
   </div>
 </div>
 
@@ -254,70 +294,72 @@ code,.mono{font-family:'Fira Code',monospace;background:#E8FFFB;border-radius:6p
   <div class="blob b1"></div>
   <div class="slide-label">Part 2 — LCM</div>
   <h2>What is the Least Common Multiple? 🔁</h2>
-  <p style="font-size:13px;margin-bottom:12px;">The <strong>LCM</strong> of two or more numbers is the <strong>smallest number that all of them divide exactly</strong>. It is the smallest shared multiple.</p>
-  <div class="tri-row">
+  <div class="tri-row" style="margin-top:8px;">
     <div class="tri-card" style="border-color:var(--yellow);">
-      <h3>LCM(6, 10)</h3>
-      <div style="font-family:'Fira Code',monospace;font-size:12.5px;line-height:2;margin-top:6px;">
-        <p>Multiples of 6: 6, 12, 18, 24, <strong style="color:var(--yellow);">30</strong>…</p>
-        <p>Multiples of 10: 10, 20, <strong style="color:var(--yellow);">30</strong>…</p>
-        <p style="color:var(--yellow);font-weight:800;">LCM = 30 ✓</p>
+      <div style="font-size:26px;">🔢</div>
+      <h3>Break it down word by word</h3>
+      <div style="display:flex;flex-direction:column;gap:8px;margin-top:6px;">
+        <div style="background:#FFF8E1;border-radius:10px;padding:8px 12px;font-size:13px;"><strong style="color:#8B6000;">Least</strong> = the smallest one</div>
+        <div style="background:#FFF8E1;border-radius:10px;padding:8px 12px;font-size:13px;"><strong style="color:#8B6000;">Common</strong> = shared by all the numbers</div>
+        <div style="background:#FFF8E1;border-radius:10px;padding:8px 12px;font-size:13px;"><strong style="color:#8B6000;">Multiple</strong> = what you get when you multiply a number by 1, 2, 3, 4…</div>
       </div>
     </div>
-    <div class="tri-card" style="border-color:var(--orange);">
-      <h3>LCM(6, 8, 15)</h3>
-      <div style="font-family:'Fira Code',monospace;font-size:12.5px;line-height:2;margin-top:6px;">
-        <p>6 = 2 × 3</p>
-        <p>8 = 2³</p>
-        <p>15 = 3 × 5</p>
-        <p>LCM = 2³ × 3 × 5</p>
-        <p style="color:var(--orange);font-weight:800;">= 120 ✓</p>
+    <div class="tri-card" style="border-color:var(--orange);flex:1.4;">
+      <div style="font-size:26px;">💡</div>
+      <h3>Think of it this way</h3>
+      <p style="font-size:13px;line-height:1.7;">Multiples of <strong>4</strong> are: 4, 8, <strong style="color:var(--orange);">12</strong>, 16, 20…</p>
+      <p style="font-size:13px;line-height:1.7;margin-top:4px;">Multiples of <strong>6</strong> are: 6, <strong style="color:var(--orange);">12</strong>, 18, 24…</p>
+      <p style="font-size:13px;line-height:1.7;margin-top:8px;">The <strong>first number they both land on</strong> is the LCM.</p>
+      <div style="background:var(--yellow);border-radius:10px;padding:9px 12px;margin-top:8px;">
+        <p style="font-size:13px;color:var(--dark);font-weight:800;">LCM(4, 6) = 12</p>
       </div>
     </div>
     <div class="tri-card" style="border-color:var(--teal);">
-      <h3>Real-world use</h3>
-      <p style="font-size:13px;">Bus A comes every <strong>6 minutes</strong>, Bus B every <strong>10 minutes</strong>. They just arrived together. When do they next arrive at the same time?</p>
-      <p style="font-size:13px;font-weight:800;color:var(--teal);margin-top:8px;">LCM(6, 10) = 30 minutes later ✓</p>
+      <div style="font-size:26px;">🚌</div>
+      <h3>Real-world example</h3>
+      <p style="font-size:13px;line-height:1.7;">Two blinking lights: Light A blinks every <strong>4 seconds</strong>, Light B blinks every <strong>6 seconds</strong>. They just blinked together.</p>
+      <p style="font-size:13px;line-height:1.7;margin-top:8px;">When will they <strong>next blink at the same time?</strong></p>
+      <p style="font-size:13px;font-weight:800;color:var(--teal);margin-top:8px;">LCM(4, 6) = 12 seconds later!</p>
     </div>
   </div>
-  <div style="margin-top:14px;background:var(--yellow);border-radius:12px;padding:10px 16px;">
-    <p style="font-size:13px;color:var(--dark);"><strong>💡 Prime factorization method:</strong> take the <em>highest power</em> of each prime factor that appears in any of the numbers, then multiply them together.</p>
+  <div style="margin-top:12px;background:var(--yellow);border-radius:12px;padding:10px 16px;">
+    <p style="font-size:13px;color:var(--dark);"><strong>🎯 Remember:</strong> the LCM is always at least as big as the largest number in the group. LCM(4, 6) can't be smaller than 6!</p>
   </div>
 </div>
 
-<!-- S6 FINDING LCM -->
+<!-- S6 FINDING LCM — TWO METHODS -->
 <div class="slide" id="s6">
   <div class="blob b1"></div>
-  <div class="slide-label">Part 2 — Prime Factorization Method</div>
-  <h2>Finding LCM with prime factorization 🌳</h2>
-  <div class="tri-row">
-    <div class="tri-card" style="border-color:var(--teal);flex:1.5;">
-      <h3>LCM(24, 54)</h3>
-      <div style="font-family:'Fira Code',monospace;font-size:13px;line-height:2.1;margin-top:6px;">
-        <p>24 = 2³ × 3</p>
-        <p>54 = 2 × 3³</p>
-        <p style="color:var(--muted);font-size:11px;">Take highest power of each prime:</p>
-        <p>2³ × 3³ = 8 × 27</p>
-        <p style="color:var(--teal);font-weight:800;">LCM = 216 ✓</p>
+  <div class="slide-label">Part 2 — Two Methods</div>
+  <h2>Two ways to find the LCM 🛠️</h2>
+  <div class="grid2" style="flex:1;gap:14px;margin-top:8px;">
+    <div class="method-box" style="border-color:var(--yellow);">
+      <h3 style="color:#8B6000;">Method 1 — List the Multiples</h3>
+      <p style="font-size:12.5px;color:var(--muted);margin-bottom:10px;">Write out the multiples of each number. The first one they share is the LCM.</p>
+      <p style="font-size:13px;font-weight:700;margin-bottom:8px;">LCM(4, 10)</p>
+      <div style="font-family:'Fira Code',monospace;font-size:12.5px;line-height:2.1;background:#FFF8E1;border-radius:10px;padding:10px 12px;">
+        <p>4:  4, 8, 12, 16, <strong style="color:#8B6000;">20</strong>…</p>
+        <p>10: 10, <strong style="color:#8B6000;">20</strong>…</p>
+        <p style="color:#8B6000;font-weight:800;">LCM(4, 10) = 20 ✓</p>
       </div>
+      <p style="font-size:12px;color:var(--muted);margin-top:8px;">✅ Best for smaller numbers — easy to understand!</p>
     </div>
-    <div class="tri-card" style="border-color:var(--orange);flex:1.5;">
-      <h3>LCM(6, 8, 15)</h3>
-      <div style="font-family:'Fira Code',monospace;font-size:13px;line-height:2.1;margin-top:6px;">
-        <p>6  = 2  × 3</p>
+    <div class="method-box" style="border-color:var(--teal);">
+      <h3 style="color:var(--teal);">Method 2 — Prime Factorization</h3>
+      <p style="font-size:12.5px;color:var(--muted);margin-bottom:10px;">Break each number into prime factors. Take the highest power of each prime, then multiply.</p>
+      <p style="font-size:13px;font-weight:700;margin-bottom:8px;">LCM(8, 15)</p>
+      <div style="font-family:'Fira Code',monospace;font-size:12.5px;line-height:2.1;background:#E8FFFB;border-radius:10px;padding:10px 12px;">
         <p>8  = 2³</p>
-        <p>15 =      3 × 5</p>
+        <p>15 = 3 × 5</p>
         <p style="color:var(--muted);font-size:11px;">Highest powers: 2³, 3¹, 5¹</p>
         <p>2³ × 3 × 5 = 8 × 15</p>
-        <p style="color:var(--orange);font-weight:800;">LCM = 120 ✓</p>
+        <p style="color:var(--teal);font-weight:800;">LCM(8, 15) = 120 ✓</p>
       </div>
+      <p style="font-size:12px;color:var(--muted);margin-top:8px;">✅ Best for bigger numbers — no long lists!</p>
     </div>
-    <div style="display:flex;flex-direction:column;gap:10px;flex:1;">
-      <div style="background:var(--yellow);border-radius:var(--radius);padding:14px 16px;">
-        <h3 style="margin-bottom:6px;">The Steps</h3>
-        <p style="font-size:12.5px;line-height:1.8;">1. Prime-factorize each number<br>2. List all primes that appear<br>3. For each prime, take the <em>highest</em> power used in any number<br>4. Multiply them all together</p>
-      </div>
-    </div>
+  </div>
+  <div style="margin-top:12px;background:var(--yellow);border-radius:12px;padding:10px 16px;">
+    <p style="font-size:13px;color:var(--dark);"><strong>💡 Tip:</strong> Both methods always give the same answer. Use listing for small numbers, prime factorization for big ones.</p>
   </div>
 </div>
 
@@ -343,9 +385,10 @@ code,.mono{font-family:'Fira Code',monospace;background:#E8FFFB;border-radius:6p
       <h3>Use it as a shortcut</h3>
       <p style="font-size:13px;">If you know the GCF, you can find the LCM without listing multiples:</p>
       <div style="font-family:'Fira Code',monospace;font-size:13px;line-height:2;margin-top:8px;background:#F5F0FF;border-radius:10px;padding:10px 12px;">
-        <p>GCF(12,60) = 12</p>
-        <p>LCM = (12 × 60) ÷ 12</p>
-        <p style="color:var(--purple);font-weight:800;">LCM = 60 ✓</p>
+        <p>GCF(9, 15) = 3</p>
+        <p>LCM = (9 × 15) ÷ 3</p>
+        <p>= 135 ÷ 3</p>
+        <p style="color:var(--purple);font-weight:800;">LCM = 45 ✓</p>
       </div>
     </div>
     <div class="tri-card" style="border-color:var(--orange);">
@@ -545,26 +588,26 @@ function revealPractice(){practiceRevealed=true;const p=practices[practiceIdx];d
 
 // QUIZ
 const questions=[
-  {q:'Jake has 18 stickers and Maria has 30. They want to split into equal groups using all stickers. What is the largest possible group size?',
-   opts:['3','4','6','9'],ans:2,diff:'easy',exp:'GCF(18,30)=6. The factors of 18 are 1,2,3,6,9,18. The biggest one that also divides 30 is 6.'},
-  {q:'What is GCF(12, 60)?',
-   opts:['6','10','12','15'],ans:2,diff:'easy',exp:'60 = 5 × 12 + 0. Since 12 divides 60 exactly, GCF(12,60) = 12.'},
-  {q:'What is LCM(6, 10)?',
-   opts:['16','20','30','60'],ans:2,diff:'easy',exp:'Multiples of 6: 6,12,18,24,30. Multiples of 10: 10,20,30. First match is 30.'},
-  {q:'Bus A comes every 6 minutes, Bus B every 10 minutes. They just left together. How many minutes until they next leave at the same time?',
-   opts:['10 min','16 min','30 min','60 min'],ans:2,diff:'medium',exp:'LCM(6,10)=30. They will next arrive together in 30 minutes.'},
-  {q:'What is GCF(84, 56)?',
-   opts:['7','14','21','28'],ans:3,diff:'medium',exp:'Using Euclid: 84=1×56+28, 56=2×28+0. GCF=28.'},
-  {q:'Two ropes are 84 cm and 56 cm. You cut them into equal pieces with no waste. What is the longest possible piece length?',
-   opts:['7 cm','14 cm','21 cm','28 cm'],ans:3,diff:'medium',exp:'GCF(84,56)=28. Each rope can be cut into equal 28cm pieces: 84÷28=3 pieces, 56÷28=2 pieces.'},
-  {q:'What is LCM(6, 8, 15)?',
-   opts:['48','60','90','120'],ans:3,diff:'medium',exp:'6=2×3, 8=2³, 15=3×5. Take highest powers: 2³×3×5 = 8×15 = 120.'},
-  {q:'If GCF(a,b) × LCM(a,b) = a × b, and GCF(12,60)=12, what is LCM(12,60)?',
-   opts:['30','60','72','120'],ans:1,diff:'hard',exp:'LCM = (12×60)÷GCF = 720÷12 = 60.'},
-  {q:'Sanav practices math every 6 days and piano every 8 days. Starting today, in how many days will he do both on the same day?',
-   opts:['14 days','16 days','24 days','48 days'],ans:2,diff:'hard',exp:'LCM(6,8): 6=2×3, 8=2³. LCM=2³×3=24. He will do both again in 24 days.'},
-  {q:'What is GCF(21, 10)?',
-   opts:['1','2','5','7'],ans:0,diff:'hard',exp:'21=3×7 and 10=2×5 share no common prime factors. When two numbers share no factors, their GCF is 1. They are called coprime.'},
+  {q:'Lily has 16 crayons and Tom has 20 markers. They want to split everything into equal groups — same size for both — with nothing left over. What is the largest group size?',
+   opts:['2','4','8','16'],ans:1,diff:'easy',exp:'GCF(16,20)=4. Factors of 16: 1,2,4,8,16. Factors of 20: 1,2,4,5,10,20. The biggest shared factor is 4.'},
+  {q:'What is GCF(25, 45)?',
+   opts:['3','5','9','15'],ans:1,diff:'easy',exp:'25=5² and 45=3²×5. The only shared prime is 5¹. GCF(25,45)=5.'},
+  {q:'What is LCM(4, 7)?',
+   opts:['11','14','21','28'],ans:3,diff:'easy',exp:'4 and 7 share no common factors, so LCM = 4×7 = 28. Multiples of 4: 4,8,12,16,20,24,28. Multiples of 7: 7,14,21,28. First match is 28.'},
+  {q:'Two sprinklers water a garden. Sprinkler A runs every 4 minutes, Sprinkler B every 9 minutes. They just turned on together. In how many minutes will they turn on at the same time again?',
+   opts:['13 min','18 min','27 min','36 min'],ans:3,diff:'medium',exp:'LCM(4,9): since 4=2² and 9=3² share no common primes, LCM=4×9=36 minutes.'},
+  {q:'What is GCF(32, 48)?',
+   opts:['8','12','16','24'],ans:2,diff:'medium',exp:'Using Euclid: 48÷32 → remainder 16. 32÷16 → remainder 0. GCF(32,48)=16.'},
+  {q:'Two ribbons are 32 cm and 48 cm long. You cut both into equal pieces with no ribbon wasted. What is the longest piece you can cut?',
+   opts:['8 cm','12 cm','16 cm','24 cm'],ans:2,diff:'medium',exp:'GCF(32,48)=16. 32÷16=2 pieces, 48÷16=3 pieces. Longest equal piece = 16 cm.'},
+  {q:'What is LCM(5, 9)?',
+   opts:['14','18','35','45'],ans:3,diff:'medium',exp:'5 and 9 share no common prime factors (5=5, 9=3²), so LCM = 5×9 = 45.'},
+  {q:'GCF(9, 15) = 3. Using the formula GCF × LCM = a × b, what is LCM(9, 15)?',
+   opts:['27','40','45','135'],ans:2,diff:'hard',exp:'LCM = (9×15)÷GCF = 135÷3 = 45.'},
+  {q:'Aiden reads every 4 days and exercises every 7 days. He did both today. In how many days will he next do both on the same day?',
+   opts:['11 days','14 days','21 days','28 days'],ans:3,diff:'hard',exp:'LCM(4,7)=28. Since 4 and 7 share no common factors, LCM=4×7=28 days.'},
+  {q:'Which pair of numbers has a GCF of 1? (Numbers with GCF = 1 are called coprime.)',
+   opts:['16 and 20','25 and 45','32 and 48','16 and 35'],ans:3,diff:'hard',exp:'16=2⁴ and 35=5×7 share no common prime factors at all, so GCF(16,35)=1. They are coprime.'},
 ];
 let qIdx=0,score=0,answered=false;
 function renderQ(){const q=questions[qIdx];document.getElementById('q-text').innerHTML=q.q;document.getElementById('q-ctr').textContent='Question '+(qIdx+1)+' of '+questions.length;document.getElementById('qprog').style.width=(qIdx/questions.length*100)+'%';document.getElementById('q-fb').textContent='';document.getElementById('q-next').style.display='none';answered=false;const badge=document.getElementById('q-diff-badge');badge.className='diff-badge diff-'+q.diff;badge.textContent=q.diff==='easy'?'🟢 Warm-Up':q.diff==='medium'?'🟡 Getting Harder':'🔴 Challenge';const opts=document.getElementById('q-opts');opts.innerHTML='';q.opts.forEach((opt,i)=>{const btn=document.createElement('button');btn.className='quiz-opt';btn.textContent=opt;btn.onclick=()=>answer(i,btn);opts.appendChild(btn);});}
